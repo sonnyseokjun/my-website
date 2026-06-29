@@ -442,7 +442,7 @@ h1, h2, h3, h4 {
 
 .hero-greeting {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.9rem;
+  font-size: 1.5rem;
   color: var(--text-secondary);
   margin-bottom: 12px;
 }
@@ -754,6 +754,12 @@ h1, h2, h3, h4 {
   border-color: var(--c-be-bdr);
 }
 
+.project-award--ai {
+  color: var(--c-ai-text);
+  background: var(--c-ai-bg);
+  border-color: var(--c-ai-bdr);
+}
+
 .project-card__title {
   font-size: 1.2rem;
   font-weight: 700;
@@ -767,8 +773,6 @@ h1, h2, h3, h4 {
   font-weight: 500;
   margin-top: -6px;
 }
-
-.project-block { }
 
 .project-block__label {
   font-size: 0.68rem;
@@ -887,8 +891,6 @@ h1, h2, h3, h4 {
 .timeline-dot--award   { background: rgba(245, 158, 11, 0.18); color: var(--warning);   outline: 1px solid rgba(245, 158, 11, 0.3);  }
 .timeline-dot--cert    { background: rgba(99, 102, 241, 0.18); color: var(--accent);    outline: 1px solid rgba(99, 102, 241, 0.3);  }
 .timeline-dot--activity{ background: rgba(16, 185, 129, 0.18); color: var(--success);   outline: 1px solid rgba(16, 185, 129, 0.3);  }
-
-.timeline-body { }
 
 .timeline-period {
   display: inline-block;
