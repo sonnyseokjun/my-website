@@ -848,6 +848,13 @@ h1, h2, h3, h4 {
 /* ============================================
    Timeline (Awards)
    ============================================ */
+.awards-layout {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 56px;
+  align-items: start;
+}
+
 .timeline {
   position: relative;
   padding-left: 48px;
@@ -906,6 +913,98 @@ h1, h2, h3, h4 {
 .timeline-body p {
   font-size: 0.85rem;
   color: var(--text-secondary);
+}
+
+/* ---- Awards gallery carousel ---- */
+.gallery-carousel {
+  position: relative;
+  border-radius: var(--r-card);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  aspect-ratio: 3 / 4;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.16);
+}
+
+.gallery-track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.45s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.gallery-slide {
+  flex: 0 0 100%;
+  height: 100%;
+}
+
+.gallery-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gallery-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(9, 9, 15, 0.5);
+  color: #fff;
+  font-size: 0.85rem;
+  backdrop-filter: blur(4px);
+  transition: background var(--t), opacity var(--t);
+  opacity: 0;
+}
+
+.gallery-carousel:hover .gallery-btn,
+.gallery-btn:focus-visible {
+  opacity: 1;
+}
+
+.gallery-btn:hover { background: rgba(99, 102, 241, 0.85); }
+
+.gallery-btn--prev { left: 12px; }
+.gallery-btn--next { right: 12px; }
+
+.gallery-dots {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 14px;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.gallery-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.45);
+  transition: background var(--t), width var(--t);
+}
+
+.gallery-dot.active {
+  width: 18px;
+  border-radius: 3px;
+  background: #fff;
+}
+
+@media (max-width: 960px) {
+  .awards-layout {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .gallery-carousel {
+    aspect-ratio: 16 / 9;
+    max-width: 480px;
+  }
 }
 
 /* ============================================

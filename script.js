@@ -101,3 +101,73 @@ const observer = new IntersectionObserver(
 );
 
 fadeEls.forEach(el => observer.observe(el));
+
+/* ============================================
+   Awards: Photo Carousel
+   ============================================ */
+const galleryTrack = document.getElementById('gallery-track');
+
+if (galleryTrack) {
+  const slides = Array.from(galleryTrack.children);
+  const dotsWrap = document.getElementById('gallery-dots');
+  const prevBtn = document.getElementById('gallery-prev');
+  const nextBtn = document.getElementById('gallery-next');
+  let current = 0;
+  let autoplayId = null;
+
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'gallery-dot';
+    dot.setAttribute('role', 'tab');
+    dot.setAttribute('aria-label', `${i + 1}번째 사진으로 이동`);
+    dot.addEventListener('click', () => goTo(i));
+    dotsWrap.appendChild(dot);
+  });
+  const dots = Array.from(dotsWrap.children);
+
+  function render() {
+    galleryTrack.style.transform = `translateX(-${current * 100}%)`;
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === current));
+  }
+
+  function goTo(index) {
+    current = (index + slides.length) % slides.length;
+    render();
+  }
+
+  function next() { goTo(current + 1); }
+  function prev() { goTo(current - 1); }
+
+  function startAutoplay() {
+    stopAutoplay();
+    autoplayId = setInterval(next, 4500);
+  }
+
+  function stopAutoplay() {
+    if (autoplayId) clearInterval(autoplayId);
+  }
+
+  nextBtn.addEventListener('click', () => { next(); startAutoplay(); });
+  prevBtn.addEventListener('click', () => { prev(); startAutoplay(); });
+
+  const carousel = galleryTrack.closest('.gallery-carousel');
+  carousel.addEventListener('mouseenter', stopAutoplay);
+  carousel.addEventListener('mouseleave', startAutoplay);
+
+  // Touch swipe
+  let touchStartX = 0;
+  galleryTrack.addEventListener('touchstart', e => {
+    touchStartX = e.touches[0].clientX;
+    stopAutoplay();
+  }, { passive: true });
+
+  galleryTrack.addEventListener('touchend', e => {
+    const diff = e.changedTouches[0].clientX - touchStartX;
+    if (diff > 40) prev();
+    else if (diff < -40) next();
+    startAutoplay();
+  }, { passive: true });
+
+  render();
+  startAutoplay();
+}
