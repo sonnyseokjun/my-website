@@ -4,12 +4,17 @@
    ===================================================================== */
 
 :root {
-  /* ---- 색상 ---- */
+  /* ---- 색상 (라이트 · 기본) ---- */
   --color-bg: #f3f2f2;
   --color-surface: #eae9e9;
   --color-text: #201e1d;
-  --color-accent: #ec3013;
   --color-divider: color-mix(in srgb, #201e1d 40%, transparent);
+
+  /* accent = 글자·테두리용 강조색, accent-solid = 면을 채우는 강조색(버튼·Contact),
+     on-accent = accent-solid 위에 얹히는 글자색. 다크에서 역할별로 값이 갈립니다. */
+  --color-accent: #ec3013;
+  --color-accent-solid: #ec3013;
+  --color-on-accent: #f3f2f2;
 
   --color-neutral-600: #7d7979;
   --color-neutral-700: #605d5d;
@@ -29,6 +34,29 @@
   --edge: clamp(20px, 5vw, 64px);
 }
 
+/* ---- 색상 (다크) ---- */
+:root[data-theme="dark"] {
+  --color-bg: #191817;
+  --color-surface: #262423;
+  --color-text: #f3f2f2;
+  --color-divider: color-mix(in srgb, #f3f2f2 30%, transparent);
+
+  /* 어두운 배경 위에서 읽히도록 강조색을 밝게 올리고,
+     면을 채우는 색은 흰 글자가 대비를 확보하도록 오히려 깊게 내립니다. */
+  --color-accent: #ff6a4d;
+  --color-accent-solid: #d4290d;
+  --color-on-accent: #f3f2f2;
+
+  --color-neutral-600: #948f8d;
+  --color-neutral-700: #b0aca9;
+  --color-neutral-800: #d5d1cf;
+
+  --color-accent-100: #3a1a12;
+  --color-accent-600: #e5330f;
+  --color-accent-700: #ff8a70;
+  --color-accent-800: #ffb3a2;
+}
+
 /* ---- 기본 리셋 ---- */
 * , *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -42,7 +70,9 @@ body {
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
   text-wrap: pretty;
+  transition: background-color .3s ease, color .3s ease;
 }
+@media (prefers-reduced-motion: reduce) { body { transition: none; } }
 h1, h2, h3, h4 {
   font-family: var(--font-heading);
   font-weight: 800;
@@ -70,8 +100,8 @@ a:hover { color: var(--color-accent-700); }
   color: var(--color-text); background: transparent;
   border: 1px solid transparent; padding: 9px 15px;
 }
-.btn-primary { background: var(--color-accent); color: var(--color-bg); }
-.btn-primary:hover { background: var(--color-accent-600); color: var(--color-bg); }
+.btn-primary { background: var(--color-accent-solid); color: var(--color-on-accent); }
+.btn-primary:hover { background: var(--color-accent-600); color: var(--color-on-accent); }
 .btn-secondary { border-color: var(--color-divider); }
 .btn-secondary:hover { background: color-mix(in srgb, var(--color-text) 7%, transparent); color: var(--color-text); }
 .btn-ghost { color: var(--color-accent); padding-inline: 6px; }
@@ -113,13 +143,28 @@ a:hover { color: var(--color-accent-700); }
 .nav-links a:hover,
 .nav-links a.active { color: var(--color-accent); }
 
+/* ---- 테마 토글 ---- */
+.theme-toggle {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 34px; height: 34px; padding: 0; cursor: pointer;
+  background: transparent; color: var(--color-text);
+  border: 1px solid var(--color-divider);
+  font-size: 15px; line-height: 1;
+  transition: background-color .2s, color .2s;
+}
+.theme-toggle:hover { background: var(--color-surface); color: var(--color-accent); }
+/* 아이콘 교체는 CSS로 처리 — JS가 늦게 실행돼도 아이콘이 깜빡이지 않습니다. */
+.theme-toggle .icon-sun { display: none; }
+:root[data-theme="dark"] .theme-toggle .icon-sun { display: inline; }
+:root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+
 /* =====================================================================
    히어로
    ===================================================================== */
 .hero .wrap { padding-top: clamp(72px, 11vw, 150px); padding-bottom: clamp(56px, 8vw, 110px); }
 .hero .eyebrow {
-  font-family: var(--font-heading); font-weight: 600; font-size: 14px;
-  letter-spacing: 0.1em; color: var(--color-accent-700); margin-bottom: 24px;
+  font-family: var(--font-heading); font-weight: 600; font-size: clamp(19px, 1.9vw, 27px);
+  letter-spacing: 0.08em; color: var(--color-accent-700); margin-bottom: 24px;
 }
 .hero h1 {
   font-size: clamp(52px, 11.5vw, 148px); line-height: 0.9;
@@ -252,20 +297,20 @@ a:hover { color: var(--color-accent-700); }
 /* =====================================================================
    Contact (레드 포스터)
    ===================================================================== */
-.contact { background: var(--color-accent); color: var(--color-bg); }
+.contact { background: var(--color-accent-solid); color: var(--color-on-accent); }
 .contact .wrap { padding-top: clamp(64px, 9vw, 120px); padding-bottom: clamp(64px, 9vw, 120px); }
-.kicker-paper { color: var(--color-bg); opacity: .82; }
-.contact h2 { color: var(--color-bg); font-size: clamp(40px, 6.5vw, 88px); line-height: 0.92; letter-spacing: -0.03em; margin: 0 0 26px; }
-.contact > .wrap > p { color: var(--color-bg); opacity: .92; font-size: clamp(16px, 1.5vw, 19px); line-height: 1.7; max-width: 48ch; margin: 0 0 clamp(40px, 5vw, 64px); }
-.contact-links { display: flex; flex-direction: column; border-top: 2px solid color-mix(in srgb, var(--color-bg) 45%, transparent); }
+.kicker-paper { color: var(--color-on-accent); opacity: .82; }
+.contact h2 { color: var(--color-on-accent); font-size: clamp(40px, 6.5vw, 88px); line-height: 0.92; letter-spacing: -0.03em; margin: 0 0 26px; }
+.contact > .wrap > p { color: var(--color-on-accent); opacity: .92; font-size: clamp(16px, 1.5vw, 19px); line-height: 1.7; max-width: 48ch; margin: 0 0 clamp(40px, 5vw, 64px); }
+.contact-links { display: flex; flex-direction: column; border-top: 2px solid color-mix(in srgb, var(--color-on-accent) 45%, transparent); }
 .contact-links a {
   display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;
-  padding: 22px 0; border-bottom: 2px solid color-mix(in srgb, var(--color-bg) 45%, transparent);
-  color: var(--color-bg); text-decoration: none;
+  padding: 22px 0; border-bottom: 2px solid color-mix(in srgb, var(--color-on-accent) 45%, transparent);
+  color: var(--color-on-accent); text-decoration: none;
   font-family: var(--font-heading); font-weight: 800; font-size: clamp(20px, 3vw, 32px); letter-spacing: -0.01em;
   transition: padding-left .25s ease;
 }
-.contact-links a:hover { color: var(--color-bg); padding-left: 12px; }
+.contact-links a:hover { color: var(--color-on-accent); padding-left: 12px; }
 .contact-val { font-size: 15px; font-weight: 400; opacity: .85; }
 
 /* =====================================================================

@@ -26,7 +26,27 @@
     reveals.forEach(function (el) { revealObserver.observe(el); });
   }
 
-  /* ---- 2. 스크롤 스파이 (네비 하이라이트) ---- */
+  /* ---- 2. 테마 토글 ----
+     초기 테마는 <head>의 인라인 스크립트가 이미 확정해 둡니다. */
+  var toggle = document.getElementById('theme-toggle');
+
+  if (toggle) {
+    var root = document.documentElement;
+
+    var syncButton = function () {
+      toggle.setAttribute('aria-pressed', root.getAttribute('data-theme') === 'dark' ? 'true' : 'false');
+    };
+    syncButton();
+
+    toggle.addEventListener('click', function () {
+      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      syncButton();
+      try { localStorage.setItem('theme', next); } catch (e) { /* 저장 실패해도 전환은 동작 */ }
+    });
+  }
+
+  /* ---- 3. 스크롤 스파이 (네비 하이라이트) ---- */
   var links = Array.prototype.slice.call(document.querySelectorAll('[data-navlink]'));
   var sections = links
     .map(function (link) { return document.getElementById(link.getAttribute('data-navlink')); })

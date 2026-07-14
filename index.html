@@ -5,7 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>김석준 · Software Engineer</title>
 <meta name="description" content="백엔드(Django/DRF)와 AWS 클라우드, AI-native 엔지니어링에 집중하는 소프트웨어 엔지니어 지망생 김석준의 포트폴리오입니다.">
-<script>document.documentElement.classList.remove('no-js');document.documentElement.classList.add('js');</script>
+<script>
+// 첫 페인트 전에 테마를 확정해야 라이트 → 다크로 번쩍이는 현상이 없습니다.
+(function(){
+  document.documentElement.classList.remove('no-js');
+  document.documentElement.classList.add('js');
+  var saved = null;
+  try { saved = localStorage.getItem('theme'); } catch (e) { /* 시크릿 모드 등 */ }
+  document.documentElement.setAttribute('data-theme', saved === 'dark' ? 'dark' : 'light');
+})();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&display=swap">
@@ -24,6 +33,10 @@
       <a href="#awards" data-navlink="awards">Awards</a>
       <a href="#contact" data-navlink="contact">Contact</a>
     </div>
+    <button type="button" class="theme-toggle" id="theme-toggle" aria-label="다크모드 전환" aria-pressed="false">
+      <span class="icon-moon" aria-hidden="true">☾</span>
+      <span class="icon-sun" aria-hidden="true">☀</span>
+    </button>
   </div>
 </nav>
 
@@ -32,8 +45,8 @@
   <div class="wrap">
     <div class="eyebrow reveal">Hello World! This is</div>
     <h1 class="reveal">SEOKJUN<br>KIM</h1>
-    <div class="role reveal">Backend Engineer · Django · AWS · AI-native</div>
-    <p class="lede reveal">꾸준함으로 문제를 끝까지 파고드는 백엔드 엔지니어 지망생입니다. Django와 AWS로 서비스를 설계·배포하고, AI를 통합해 실제 가치를 만듭니다.</p>
+    <div class="role reveal">Software Engineer · AI-native · Backend · Cloud · Infrastructure</div>
+    <p class="lede reveal">하고 싶은 것도 궁금한 것도 많은 소프트웨어 엔지니어입니다. 문제를 분석하고 해결하며 AI를 활용해 이로운 가치를 만듭니다.</p>
     <div class="actions reveal">
       <a class="btn btn-primary" href="https://github.com/sonnyseokjun" target="_blank" rel="noopener">GitHub</a>
       <a class="btn btn-secondary" href="https://linkedin.com/in/seokjun1021" target="_blank" rel="noopener">LinkedIn</a>
