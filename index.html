@@ -1,673 +1,328 @@
-<!DOCTYPE html>
-<html lang="ko" data-theme="dark">
+<!doctype html>
+<html lang="ko" class="no-js">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>김석준 · Software Engineer</title>
-  <meta name="description" content="백엔드(Django/DRF)와 AWS 클라우드, AI-native 엔지니어링에 집중하는 소프트웨어 엔지니어 지망생 김석준의 포트폴리오입니다." />
-
-  <!-- Prevent flash of wrong theme -->
-  <script>
-    (function () {
-      var t = localStorage.getItem('theme') ||
-        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-      document.documentElement.setAttribute('data-theme', t);
-    })();
-  </script>
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
-  <link rel="stylesheet" href="./style.css" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>김석준 · Software Engineer</title>
+<meta name="description" content="백엔드(Django/DRF)와 AWS 클라우드, AI-native 엔지니어링에 집중하는 소프트웨어 엔지니어 지망생 김석준의 포트폴리오입니다.">
+<script>document.documentElement.classList.remove('no-js');document.documentElement.classList.add('js');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="./style.css">
 </head>
 <body>
 
-  <!-- ===== NAVIGATION ===== -->
-  <header class="nav-header" id="nav-header">
-    <nav class="nav-container" aria-label="메인 네비게이션">
-      <a href="#hero" class="nav-logo" aria-label="홈으로 이동">Home<span class="nav-logo-dot">.</span></a>
-
-      <ul class="nav-links" role="list">
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#awards">Awards</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-
-      <div class="nav-actions">
-        <button class="theme-toggle" id="theme-toggle" aria-label="다크/라이트 모드 전환">
-          <i class="fa-solid fa-moon" aria-hidden="true"></i>
-        </button>
-        <button class="nav-hamburger" id="nav-hamburger" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mobile-menu">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-    </nav>
-
-    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
-      <ul role="list">
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#awards">Awards</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#hero" class="brand">SEOKJUN<span>.</span></a>
+    <div class="nav-links">
+      <a href="#about" data-navlink="about">About</a>
+      <a href="#skills" data-navlink="skills">Skills</a>
+      <a href="#projects" data-navlink="projects">Projects</a>
+      <a href="#awards" data-navlink="awards">Awards</a>
+      <a href="#contact" data-navlink="contact">Contact</a>
     </div>
-  </header>
+  </div>
+</nav>
 
-  <main>
-
-    <!-- ===== HERO ===== -->
-    <section id="hero" class="hero-section" aria-label="소개">
-      <div class="hero-bg-orb hero-bg-orb--1" aria-hidden="true"></div>
-      <div class="hero-bg-orb hero-bg-orb--2" aria-hidden="true"></div>
-      <div class="hero-bg-grid" aria-hidden="true"></div>
-
-      <div class="hero-content container">
-        <p class="hero-greeting">Hello World! This is</p>
-        <h1 class="hero-name">
-          SEOKJUN KIM
-        </h1>
-        <p class="hero-tagline">
-          <span class="tag-highlight">Backend Engineer</span>
-          <span class="tag-sep">·</span>
-          <span class="tag-highlight">Django</span>
-          <span class="tag-sep">·</span>
-          <span class="tag-highlight">AWS</span>
-          <span class="tag-sep">·</span>
-          <span class="tag-highlight">AI-native</span>
-        </p>
-        <p class="hero-desc">
-          꾸준함으로 문제를 끝까지 파고드는 백엔드 엔지니어 지망생입니다.<br />
-          Django와 AWS로 서비스를 설계·배포하고, AI를 통합해 실제 가치를 만듭니다.
-        </p>
-        <div class="hero-actions">
-          <a href="https://github.com/sonnyseokjun" target="_blank" rel="noopener noreferrer" class="btn btn--primary">
-            <i class="fab fa-github" aria-hidden="true"></i>
-            GitHub
-          </a>
-          <a href="https://linkedin.com/in/seokjun1021" target="_blank" rel="noopener noreferrer" class="btn btn--outline">
-            <i class="fab fa-linkedin" aria-hidden="true"></i>
-            LinkedIn
-          </a>
-          <a href="https://sonnyseokjun.github.io/my-cv/" target="_blank" rel="noopener noreferrer" class="btn btn--outline">
-            <i class="fa-solid fa-file-lines" aria-hidden="true"></i>
-            CV
-          </a>
-          <a href="#contact" class="btn btn--ghost">
-            Contact
-            <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
-          </a>
-        </div>
-      </div>
-
-      <div class="hero-scroll" aria-hidden="true">
-        <span class="hero-scroll-line"></span>
-      </div>
-    </section>
-
-    <!-- ===== ABOUT ===== -->
-    <section id="about" class="section">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-label">About</span>
-          <h2 class="section-title">저는 이런 엔지니어입니다</h2>
-        </div>
-        <div class="about-grid">
-          <div class="about-text">
-            <p class="fade-in">
-              꾸준함을 무기로 마주한 문제를 끊임없이 궁금해하고 파고드는 엔지니어를 목표로 합니다.
-              Django로 서버를 처음 띄웠던 순간부터 AWS 위에서 실제 서비스를 배포하고,
-              AI API를 통합해 사용자 가치를 만드는 것까지 — 백엔드와 클라우드, 그리고 AI를
-              하나의 흐름으로 이어붙이는 데서 즐거움을 찾습니다.
-            </p>
-            <p class="fade-in">
-              해커톤과 팀 프로젝트들을 통해 다양한 팀원들과 소통하고 협업하는 경험을 했으며,
-              이를 바탕으로 프로젝트를 진행하며 문제점을 파악하고 이를 팀원들과 해결하면서 최종적으로는 엔지니어로서 한층더 성장할 수 있었습니다.
-              지금은 AI 에이전트와 하네스 엔지니어링과 같은 새로운 엔지니어링 패러다임을 공부하며,
-              AI의 다양한 활용과 다양한 문제를 풀어내는 것에 많은 관심을 가지고 공부중입니다.
-            </p>
-          </div>
-
-          <aside class="about-meta" aria-label="이력 요약">
-            <div class="meta-card fade-in">
-              <h3 class="meta-card__label">Education</h3>
-              <div class="meta-item">
-                <strong>국민대학교</strong>
-                <span>소프트웨어학부 4학년 재학</span>
-                <span class="meta-sub">부전공: 인포메이션테크놀로지</span>
-                <span class="meta-period">2022.03 ~ 현재</span>
-              </div>
-            </div>
-
-            <div class="meta-card fade-in">
-              <h3 class="meta-card__label">Certifications</h3>
-              <div class="meta-item">
-                <strong>AWS Certified Cloud Practitioner</strong>
-                <span class="meta-period">2026.01</span>
-              </div>
-              <div class="meta-item meta-item--spaced">
-                <strong>운전면허 2종 보통</strong>
-                <span class="meta-period">2020.12</span>
-              </div>
-            </div>
-
-            <div class="meta-card fade-in">
-              <h3 class="meta-card__label">Languages (Spoken)</h3>
-              <div class="lang-badges">
-                <span class="lang-badge">Korean Native</span>
-                <span class="lang-badge">English Fluent</span>
-                <span class="lang-badge">Janpanese Basic</span>
-              </div>
-            </div>
-          </aside>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== SKILLS ===== -->
-    <section id="skills" class="section section--alt">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-label">Skills</span>
-          <h2 class="section-title">기술 스택</h2>
-        </div>
-        <div class="skills-grid">
-
-          <div class="skill-group fade-in">
-            <h3 class="skill-group__label">
-              <i class="fa-solid fa-code" aria-hidden="true"></i>
-              Languages
-            </h3>
-            <div class="skill-badges">
-              <span class="skill-badge skill-badge--lang">Python</span>
-              <span class="skill-badge skill-badge--lang">Java</span>
-              <span class="skill-badge skill-badge--lang">HTML</span>
-              <span class="skill-badge skill-badge--lang">CSS</span>
-            </div>
-          </div>
-
-          <div class="skill-group fade-in">
-            <h3 class="skill-group__label">
-              <i class="fa-solid fa-server" aria-hidden="true"></i>
-              Backend
-            </h3>
-            <div class="skill-badges">
-              <span class="skill-badge skill-badge--backend">Django</span>
-              <span class="skill-badge skill-badge--backend">Django REST Framework</span>
-            </div>
-          </div>
-
-          <div class="skill-group fade-in">
-            <h3 class="skill-group__label">
-              <i class="fa-brands fa-aws" aria-hidden="true"></i>
-              Cloud &amp; Infra
-            </h3>
-            <div class="skill-badges">
-              <span class="skill-badge skill-badge--cloud">AWS EC2</span>
-              <span class="skill-badge skill-badge--cloud">AWS S3</span>
-              <span class="skill-badge skill-badge--cloud">AWS Lambda</span>
-            </div>
-          </div>
-
-          <div class="skill-group fade-in">
-            <h3 class="skill-group__label">
-              <i class="fa-solid fa-robot" aria-hidden="true"></i>
-              AI &amp; Agents
-            </h3>
-            <div class="skill-badges">
-              <span class="skill-badge skill-badge--ai">AI Agent</span>
-              <span class="skill-badge skill-badge--ai">AWS Kiro</span>
-              <span class="skill-badge skill-badge--ai">Claude Code</span>
-              <span class="skill-badge skill-badge--ai">Harness Engineering</span>
-              <span class="skill-badge skill-badge--ai">AWS Bedrock</span>
-            </div>
-          </div>
-
-          <div class="skill-group fade-in">
-            <h3 class="skill-group__label">
-              <i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i>
-              Dev Tools
-            </h3>
-            <div class="skill-badges">
-              <span class="skill-badge skill-badge--tool">Git / GitHub</span>
-              <span class="skill-badge skill-badge--tool">VS Code</span>
-              <span class="skill-badge skill-badge--tool">PyCharm</span>
-              <span class="skill-badge skill-badge--tool">Slack</span>
-              <span class="skill-badge skill-badge--tool">Notion</span>
-              <span class="skill-badge skill-badge--tool">Figma</span>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== PROJECTS ===== -->
-    <section id="projects" class="section">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-label">Projects</span>
-          <h2 class="section-title">해결한 문제들</h2>
-        </div>
-        <div class="projects-grid">
-
-          <!-- Mefit -->
-          <article class="project-card fade-in" aria-labelledby="proj-mefit">
-            <div class="project-card__top">
-              <div class="project-badges">
-                <span class="project-type project-type--team">졸업 프로젝트</span>
-                <span class="project-period">2026.03 – 2026.06</span>
-              </div>
-              <span class="project-award">
-                <i class="fa-solid fa-trophy" aria-hidden="true"></i>
-                캡스톤 금상 · 분반 1위
-              </span>
-            </div>
-            <h3 id="proj-mefit" class="project-card__title">Mefit</h3>
-            <p class="project-card__sub">AI 기반 가상 면접 플랫폼</p>
-
-            <div class="project-block">
-              <h4 class="project-block__label">풀어낸 문제</h4>
-              <p>
-                면접 연습 플랫폼의 품질은 데이터 소스에 달려있습니다.
-                외부 데이터를 구매하는 대신 직접 채용공고 스크래핑 파이프라인을 설계해
-                최신 공고를 면접 콘텐츠의 핵심 데이터 소스로 활용했습니다.
-                또한 면접 영상에서 얼굴 감지와 표정 분석 파이프라인을 구현해
-                비언어적 요소까지 분석하는 AI 면접관 기능을 완성했습니다.
-              </p>
-            </div>
-            <div class="project-block">
-              <h4 class="project-block__label">내가 한 것</h4>
-              <ul class="project-list">
-                <li>채용공고 스크래핑 파이프라인 설계 및 개발</li>
-                <li>면접 영상 기반 얼굴 감지 · 표정 분석 파이프라인 개발, AWS Lambda 연동</li>
-                <li>Django REST Framework 기반 백엔드 API 설계 및 구현</li>
-              </ul>
-            </div>
-
-            <div class="project-tags">
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">Django</span>
-              <span class="tech-tag">DRF</span>
-              <span class="tech-tag">Computer Vision</span>
-            </div>
-            <div class="project-card__footer">
-              <a href="https://github.com/kmu-aws-capstone-team-4" target="_blank" rel="noopener noreferrer" class="project-link">
-                <i class="fab fa-github" aria-hidden="true"></i> GitHub
-              </a>
-            </div>
-          </article>
-
-          <!-- Book Recommendation Platform -->
-          <article class="project-card fade-in" aria-labelledby="proj-book">
-            <div class="project-card__top">
-              <div class="project-badges">
-                <span class="project-type project-type--team">팀 프로젝트</span>
-                <span class="project-period">2026.05 – 2026.06</span>
-              </div>
-              <span class="project-award project-award--ai">
-                <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i>
-                Harness Engineering
-              </span>
-            </div>
-            <h3 id="proj-book" class="project-card__title">Reading</h3>
-            <p class="project-card__sub">Harness Engineering을 통해 개발한 AI 도서 추천 · 정보 통합 서비스</p>
-
-            <div class="project-block">
-              <h4 class="project-block__label">풀어낸 문제</h4>
-              <p>
-                "어떤 책을 읽을까?"라는 고민에 GPT-4o가 취향(장르·분위기·난이도)을 분석해
-                맞춤 도서 5권을 추천합니다. 여기에 온라인 서점 4곳의 최저가 비교와
-                서울시 공공도서관 위치 조회까지 한 플랫폼에서 제공합니다.
-                핵심은 구현 방식입니다 — AI 에이전트 3인 팀(Architect · Developer · QA)이
-                4단계 자동화 파이프라인으로 Django 앱 4개를 직접 설계·개발·테스트했습니다.
-              </p>
-            </div>
-            <div class="project-block">
-              <h4 class="project-block__label">내가 한 것</h4>
-              <ul class="project-list">
-                <li>Harness Engineering 파이프라인 설계 — 오케스트레이터 · 에이전트 3종 · 스킬 3종 구축</li>
-                <li>GPT-4o 연동 도서 추천 API 및 네이버 API 기반 서점 가격 비교 기능 구현</li>
-                <li>전체 아키텍처 설계 · 문서화 (CLAUDE.md, harness.md, API 명세서)</li>
-                <li>GitHub Actions CI / pre-commit 품질 게이트 구성 (테스트 29개 전체 PASS)</li>
-              </ul>
-            </div>
-
-            <div class="project-tags">
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">Django 5.2</span>
-              <span class="tech-tag">DRF</span>
-              <span class="tech-tag">GPT-4o</span>
-              <span class="tech-tag">Harness Eng.</span>
-              <span class="tech-tag">GitHub Actions</span>
-            </div>
-            <div class="project-card__footer">
-              <a href="https://github.com/kmu-software-engineering-project/backend" target="_blank" rel="noopener noreferrer" class="project-link">
-                <i class="fab fa-github" aria-hidden="true"></i> GitHub
-              </a>
-            </div>
-          </article>
-
-          <!-- AI Challenge -->
-          <article class="project-card fade-in" aria-labelledby="proj-challenge">
-            <div class="project-card__top">
-              <div class="project-badges">
-                <span class="project-type project-type--hackathon">해커톤</span>
-                <span class="project-period">2025.10 – 2025.11</span>
-              </div>
-            </div>
-            <h3 id="proj-challenge" class="project-card__title">AI 챌린지 인증 플랫폼</h3>
-            <p class="project-card__sub">4호선톤 · 서울 지하철 4호선 대학 연합 해커톤</p>
-
-            <div class="project-block">
-              <h4 class="project-block__label">풀어낸 문제</h4>
-              <p>
-                챌린지 인증 사진의 진위를 사람이 직접 검토하는 방식은 확장되지 않습니다.
-                AI로 인증 사진을 자동 분석·판별하는 시스템을 구현했고,
-                처음으로 타 대학 팀원들과 협업하면서 API 명세 문서화를 직접 주도해
-                커뮤니케이션 비용과 통합 오류를 줄였습니다.
-                EC2 인프라 구축부터 DNS 도메인 배포까지 인프라 전 과정도 담당했습니다.
-              </p>
-            </div>
-            <div class="project-block">
-              <h4 class="project-block__label">내가 한 것</h4>
-              <ul class="project-list">
-                <li>Django REST Framework 기반 RESTful API 설계 및 구현</li>
-                <li>API 명세 문서 작성 주도 (타 대학 팀원과 협업)</li>
-                <li>AWS EC2 인프라 구축 및 DNS 연결을 통한 도메인 배포</li>
-              </ul>
-            </div>
-
-            <div class="project-tags">
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">Django</span>
-              <span class="tech-tag">DRF</span>
-              <span class="tech-tag">AWS EC2</span>
-              <span class="tech-tag">DNS</span>
-            </div>
-            <div class="project-card__footer">
-              <a href="https://github.com/Likelion13-line4-Challink/Challink-BE" target="_blank" rel="noopener noreferrer" class="project-link">
-                <i class="fab fa-github" aria-hidden="true"></i> GitHub
-              </a>
-            </div>
-          </article>
-
-          <!-- Real Estate -->
-          <article class="project-card fade-in" aria-labelledby="proj-realestate">
-            <div class="project-card__top">
-              <div class="project-badges">
-                <span class="project-type project-type--hackathon">해커톤</span>
-                <span class="project-period">2025.08</span>
-              </div>
-              <span class="project-award project-award--green">
-                전국 247팀 중 83위
-              </span>
-            </div>
-            <h3 id="proj-realestate" class="project-card__title">부동산 서류 AI 분석 서비스</h3>
-            <p class="project-card__sub">멋쟁이사자처럼 13기 중앙 해커톤</p>
-
-            <div class="project-block">
-              <h4 class="project-block__label">풀어낸 문제</h4>
-              <p>
-                전세·월세 계약서나 등기부등본은 법률 용어로 가득 차 일반인이 이해하기 어렵습니다.
-                AI API를 연동해 복잡한 서류를 쉬운 언어로 분석해주는 기능을 구현했고,
-                프롬프트 엔지니어링으로 분석 결과의 정확도와 일관성을 반복적으로 개선했습니다.
-              </p>
-            </div>
-            <div class="project-block">
-              <h4 class="project-block__label">내가 한 것</h4>
-              <ul class="project-list">
-                <li>AI API 연동 및 프롬프트 엔지니어링으로 응답 정확도 향상</li>
-                <li>Django 기반 백엔드 API 설계 및 개발</li>
-                <li>AWS EC2 배포 및 운영 환경 구축</li>
-              </ul>
-            </div>
-
-            <div class="project-tags">
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">Django</span>
-              <span class="tech-tag">AWS EC2</span>
-              <span class="tech-tag">AWS S3</span>
-              <span class="tech-tag">AI API</span>
-            </div>
-            <div class="project-card__footer">
-              <a href="https://github.com/kookmin-404BrainNotFound/404BrainNotFound_BE" target="_blank" rel="noopener noreferrer" class="project-link">
-                <i class="fab fa-github" aria-hidden="true"></i> GitHub
-              </a>
-            </div>
-          </article>
-
-          <!-- Alcohol Curation -->
-          <article class="project-card fade-in" aria-labelledby="proj-alcohol">
-            <div class="project-card__top">
-              <div class="project-badges">
-                <span class="project-type project-type--idea">아이디어톤</span>
-                <span class="project-period">2025.05</span>
-              </div>
-              <span class="project-award">
-                <i class="fa-solid fa-trophy" aria-hidden="true"></i>
-                교내 1위 · 학교 대표 선발
-              </span>
-            </div>
-            <h3 id="proj-alcohol" class="project-card__title">주류 애호가를 위한 큐레이션 서비스</h3>
-            <p class="project-card__sub">멋쟁이사자처럼 13기 아이디어톤</p>
-
-            <div class="project-block">
-              <h4 class="project-block__label">풀어낸 문제</h4>
-              <p>
-                양주·칵테일·와인에 관심이 생겨도 어디서 무엇을 골라야 할지 몰라
-                진입장벽이 높다는 문제에 주목했습니다.
-                사용자 페르소나와 레퍼런스 리서치를 바탕으로 맞춤형 추천 플로우를 설계하고,
-                Figma로 UI/UX 프로토타입을 완성해 교내 1위 · 학교 대표 선발을 달성했습니다.
-              </p>
-            </div>
-            <div class="project-block">
-              <h4 class="project-block__label">내가 한 것</h4>
-              <ul class="project-list">
-                <li>사용자 페르소나 정의 및 레퍼런스 리서치 주도</li>
-                <li>핵심 기능 설계 및 Figma UI/UX 프로토타이핑 담당</li>
-              </ul>
-            </div>
-
-            <div class="project-tags">
-              <span class="tech-tag">Figma</span>
-              <span class="tech-tag">Notion</span>
-            </div>
-          </article>
-
-          <!-- Pinterest Clone -->
-          <article class="project-card fade-in" aria-labelledby="proj-pinterest">
-            <div class="project-card__top">
-              <div class="project-badges">
-                <span class="project-type project-type--personal">개인 프로젝트</span>
-              </div>
-            </div>
-            <h3 id="proj-pinterest" class="project-card__title">Pinterest 스타일 사진 공유 웹</h3>
-            <p class="project-card__sub">Django 풀스택 개인 학습 프로젝트</p>
-
-            <div class="project-block">
-              <h4 class="project-block__label">풀어낸 문제</h4>
-              <p>
-                Django의 MTV구조, 파일 업로드, 템플릿 시스템을 실제로 사용하며 익히고 싶었습니다.
-                Pinterest의 그리드 레이아웃을 직접 구현하면서 CSS Grid와 Django 파일 핸들링을
-                동시에 익혔고, "보고 배우는 것"이 아닌 "만들며 배우는 것"의 효과를 체감했습니다.
-              </p>
-            </div>
-            <div class="project-block">
-              <h4 class="project-block__label">내가 한 것</h4>
-              <ul class="project-list">
-                <li>Django 기반 사진 업로드 및 공유 기능 전 과정 구현</li>
-                <li>HTML/CSS 그리드 레이아웃 UI 직접 구성</li>
-              </ul>
-            </div>
-
-            <div class="project-tags">
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">Django</span>
-              <span class="tech-tag">HTML</span>
-              <span class="tech-tag">CSS</span>
-            </div>
-            <div class="project-card__footer">
-              <a href="https://github.com/sonnyseokjun/SA_Whatever_seokjun" target="_blank" rel="noopener noreferrer" class="project-link">
-                <i class="fab fa-github" aria-hidden="true"></i> GitHub
-              </a>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== AWARDS & ACTIVITIES ===== -->
-    <section id="awards" class="section section--alt">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-label">Awards &amp; Activities</span>
-          <h2 class="section-title">수상 및 활동</h2>
-        </div>
-        <div class="awards-layout">
-          <div class="timeline">
-
-            <div class="timeline-item fade-in">
-              <div class="timeline-dot timeline-dot--award" aria-hidden="true">
-                <i class="fa-solid fa-trophy"></i>
-              </div>
-              <div class="timeline-body">
-                <span class="timeline-period">2026.06</span>
-                <h3>국민대학교 캡스톤디자인 졸업프로젝트 <strong>금상</strong></h3>
-                <p>해당 분반 1등 · Mefit (AI 가상 면접 플랫폼)</p>
-              </div>
-            </div>
-
-            <div class="timeline-item fade-in">
-              <div class="timeline-dot timeline-dot--cert" aria-hidden="true">
-                <i class="fa-solid fa-certificate"></i>
-              </div>
-              <div class="timeline-body">
-                <span class="timeline-period">2026.01</span>
-                <h3>AWS Certified Cloud Practitioner 취득</h3>
-                <p>AWS 핵심 서비스 및 클라우드 아키텍처에 대한 공인 자격</p>
-              </div>
-            </div>
-
-            <div class="timeline-item fade-in">
-              <div class="timeline-dot timeline-dot--activity" aria-hidden="true">
-                <i class="fa-solid fa-microchip"></i>
-              </div>
-              <div class="timeline-body">
-                <span class="timeline-period">2025.08</span>
-                <h3>AWS AI Agent with MCP 부트캠프 수료</h3>
-                <p>AWS Korea 주관 · 학과 교수 추천 선발</p>
-              </div>
-            </div>
-
-            <div class="timeline-item fade-in">
-              <div class="timeline-dot timeline-dot--award" aria-hidden="true">
-                <i class="fa-solid fa-medal"></i>
-              </div>
-              <div class="timeline-body">
-                <span class="timeline-period">2025.05</span>
-                <h3>멋쟁이사자처럼 아이디어톤 <strong>교내 1위</strong></h3>
-                <p>학교 대표 선발 · 주류 큐레이션 서비스 기획</p>
-              </div>
-            </div>
-
-            <div class="timeline-item fade-in">
-              <div class="timeline-dot timeline-dot--activity" aria-hidden="true">
-                <i class="fa-solid fa-graduation-cap"></i>
-              </div>
-              <div class="timeline-body">
-                <span class="timeline-period">2025.01 – 2025.12</span>
-                <h3>멋쟁이사자처럼 13기 수료</h3>
-                <p>Django 백엔드 트랙 · 해커톤 2회 참가 (중앙 해커톤, 4호선톤)</p>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="gallery-carousel fade-in" aria-label="활동 사진 갤러리" role="region">
-            <div class="gallery-track" id="gallery-track">
-              <div class="gallery-slide"><img src="web_site_photos/KakaoTalk_20260711_205722141.jpg" alt="AWS AI Agent with MCP 부트캠프 활동 사진 1" loading="lazy" /></div>
-              <div class="gallery-slide"><img src="web_site_photos/KakaoTalk_20260711_205722141_01.png" alt="AWS AI Agent with MCP 부트캠프 활동 사진 2" loading="lazy" /></div>
-              <div class="gallery-slide"><img src="web_site_photos/KakaoTalk_20260711_205751327.jpg" alt="AWS AI Agent with MCP 부트캠프 활동 사진 3" loading="lazy" /></div>
-              <div class="gallery-slide"><img src="web_site_photos/KakaoTalk_20260711_210636590.jpg" alt="AWS AI Agent with MCP 부트캠프 활동 사진 4" loading="lazy" /></div>
-              <div class="gallery-slide"><img src="web_site_photos/KakaoTalk_20260711_210653008.jpg" alt="AWS AI Agent with MCP 부트캠프 활동 사진 5" loading="lazy" /></div>
-              <div class="gallery-slide"><img src="web_site_photos/KakaoTalk_20260711_210758972.jpg" alt="AWS AI Agent with MCP 부트캠프 활동 사진 6" loading="lazy" /></div>
-              <div class="gallery-slide"><img src="web_site_photos/KakaoTalk_20260711_210758972_01.jpg" alt="AWS AI Agent with MCP 부트캠프 활동 사진 7" loading="lazy" /></div>
-              <div class="gallery-slide"><img src="web_site_photos/KakaoTalk_20260711_210908484.jpg" alt="AWS AI Agent with MCP 부트캠프 활동 사진 8" loading="lazy" /></div>
-              <div class="gallery-slide"><img src="web_site_photos/KakaoTalk_20260711_211655086.jpg" alt="AWS AI Agent with MCP 부트캠프 활동 사진 9" loading="lazy" /></div>
-            </div>
-
-            <button class="gallery-btn gallery-btn--prev" id="gallery-prev" aria-label="이전 사진">
-              <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
-            </button>
-            <button class="gallery-btn gallery-btn--next" id="gallery-next" aria-label="다음 사진">
-              <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
-            </button>
-
-            <div class="gallery-dots" id="gallery-dots" role="tablist" aria-label="사진 선택"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== CONTACT ===== -->
-    <section id="contact" class="section">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-label">Contact</span>
-          <h2 class="section-title">함께 일해요</h2>
-        </div>
-        <div class="contact-wrap">
-          <p class="contact-desc">
-            다양한 사람들과 소통하고 새로운걸 배우고 것을 즐깁니다.<br />
-            언제든 편하게 연락해주세요.
-          </p>
-          <div class="contact-list">
-            <a href="mailto:kimsj6978@gmail.com" class="contact-card">
-              <i class="fa-solid fa-envelope" aria-hidden="true"></i>
-              <div>
-                <span class="contact-label">Email</span>
-                <span class="contact-value">kimsj6978@gmail.com</span>
-              </div>
-              <i class="fa-solid fa-arrow-right contact-arrow" aria-hidden="true"></i>
-            </a>
-            <a href="https://github.com/sonnyseokjun" target="_blank" rel="noopener noreferrer" class="contact-card">
-              <i class="fab fa-github" aria-hidden="true"></i>
-              <div>
-                <span class="contact-label">GitHub</span>
-                <span class="contact-value">github.com/sonnyseokjun</span>
-              </div>
-              <i class="fa-solid fa-arrow-right contact-arrow" aria-hidden="true"></i>
-            </a>
-            <a href="https://linkedin.com/in/seokjun1021" target="_blank" rel="noopener noreferrer" class="contact-card">
-              <i class="fab fa-linkedin" aria-hidden="true"></i>
-              <div>
-                <span class="contact-label">LinkedIn</span>
-                <span class="contact-value">linkedin.com/in/seokjun1021</span>
-              </div>
-              <i class="fa-solid fa-arrow-right contact-arrow" aria-hidden="true"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p>© 2026 김석준 · Built with HTML · CSS · Vanilla JS</p>
+<!-- ============================== HERO ============================== -->
+<section id="hero" class="hero">
+  <div class="wrap">
+    <div class="eyebrow reveal">Hello World! This is</div>
+    <h1 class="reveal">SEOKJUN<br>KIM</h1>
+    <div class="role reveal">Backend Engineer · Django · AWS · AI-native</div>
+    <p class="lede reveal">꾸준함으로 문제를 끝까지 파고드는 백엔드 엔지니어 지망생입니다. Django와 AWS로 서비스를 설계·배포하고, AI를 통합해 실제 가치를 만듭니다.</p>
+    <div class="actions reveal">
+      <a class="btn btn-primary" href="https://github.com/sonnyseokjun" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn btn-secondary" href="https://linkedin.com/in/seokjun1021" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn btn-secondary" href="https://sonnyseokjun.github.io/my-cv/" target="_blank" rel="noopener">CV</a>
+      <a class="btn btn-ghost" href="#contact">Contact</a>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <script src="./script.js"></script>
+<div class="divider"></div>
+
+<!-- ============================== ABOUT ============================== -->
+<section id="about" class="section">
+  <div class="wrap">
+    <header class="section-head reveal">
+      <div class="kicker">00 — About</div>
+      <h2>저는 이런 엔지니어입니다</h2>
+    </header>
+    <div class="about-cols reveal">
+      <p>꾸준함을 무기로 마주한 문제를 끊임없이 궁금해하고 파고드는 엔지니어를 목표로 합니다. Django로 서버를 처음 띄웠던 순간부터 AWS 위에서 실제 서비스를 배포하고, AI API를 통합해 사용자 가치를 만드는 것까지 — 백엔드와 클라우드, 그리고 AI를 하나의 흐름으로 이어붙이는 데서 즐거움을 찾습니다.</p>
+      <p>해커톤과 팀 프로젝트를 통해 다양한 팀원들과 소통하고 협업했으며, 문제점을 파악하고 함께 해결하면서 엔지니어로서 한층 더 성장했습니다. 지금은 AI 에이전트와 하네스 엔지니어링 같은 새로운 엔지니어링 패러다임을 공부하며, AI의 다양한 활용과 문제 해결에 깊은 관심을 두고 있습니다.</p>
+    </div>
+    <div class="meta-grid reveal">
+      <div class="meta-cell">
+        <div class="meta-label">Education</div>
+        <div class="meta-row"><strong>국민대학교</strong> 소프트웨어학부 4학년 재학</div>
+        <div class="meta-sub">부전공 · 인포메이션테크놀로지</div>
+        <div class="meta-sub">2022.03 – 현재</div>
+      </div>
+      <div class="meta-cell">
+        <div class="meta-label">Certifications</div>
+        <div class="meta-row"><strong>AWS Certified Cloud Practitioner</strong></div>
+        <div class="meta-sub" style="margin-bottom:14px">2026.01</div>
+        <div class="meta-row"><strong>운전면허 2종 보통</strong></div>
+        <div class="meta-sub">2020.12</div>
+      </div>
+      <div class="meta-cell">
+        <div class="meta-label">Languages</div>
+        <div class="meta-lang">Korean <span>— Native</span></div>
+        <div class="meta-lang">English <span>— Fluent</span></div>
+        <div class="meta-lang">Japanese <span>— Basic</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============================== SKILLS ============================== -->
+<section id="skills" class="section">
+  <div class="wrap">
+    <header class="section-head reveal">
+      <div class="kicker">01 — Skills</div>
+      <h2>기술 스택</h2>
+    </header>
+    <div class="skills-grid reveal">
+      <div class="skill-cell">
+        <div class="skill-label">Languages</div>
+        <div class="tags"><span class="tag tag-neutral">Python</span><span class="tag tag-neutral">Java</span><span class="tag tag-neutral">HTML</span><span class="tag tag-neutral">CSS</span></div>
+      </div>
+      <div class="skill-cell">
+        <div class="skill-label">Backend</div>
+        <div class="tags"><span class="tag tag-neutral">Django</span><span class="tag tag-neutral">Django REST Framework</span></div>
+      </div>
+      <div class="skill-cell">
+        <div class="skill-label">Cloud &amp; Infra</div>
+        <div class="tags"><span class="tag tag-neutral">AWS EC2</span><span class="tag tag-neutral">AWS S3</span><span class="tag tag-neutral">AWS Lambda</span></div>
+      </div>
+      <div class="skill-cell">
+        <div class="skill-label">AI &amp; Agents</div>
+        <div class="tags"><span class="tag tag-neutral">AI Agent</span><span class="tag tag-neutral">AWS Kiro</span><span class="tag tag-neutral">Claude Code</span><span class="tag tag-neutral">Harness Engineering</span><span class="tag tag-neutral">AWS Bedrock</span></div>
+      </div>
+      <div class="skill-cell">
+        <div class="skill-label">Dev Tools</div>
+        <div class="tags"><span class="tag tag-neutral">Git / GitHub</span><span class="tag tag-neutral">VS Code</span><span class="tag tag-neutral">PyCharm</span><span class="tag tag-neutral">Slack</span><span class="tag tag-neutral">Notion</span><span class="tag tag-neutral">Figma</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============================== PROJECTS ============================== -->
+<section id="projects" class="section">
+  <div class="wrap">
+    <header class="section-head reveal">
+      <div class="kicker">02 — Projects</div>
+      <h2>해결한 문제들</h2>
+    </header>
+
+    <div class="projects">
+
+      <article class="project reveal">
+        <div class="project-meta">
+          <div class="project-num">01</div>
+          <div class="project-type">졸업 프로젝트</div>
+          <div class="project-period">2026.03 – 2026.06</div>
+          <div class="project-badge"><span class="tag tag-outline">캡스톤 금상 · 분반 1위</span></div>
+        </div>
+        <div class="project-body">
+          <h3>Mefit</h3>
+          <div class="project-sub">AI 기반 가상 면접 플랫폼</div>
+          <div class="block-label">풀어낸 문제</div>
+          <p class="problem">면접 연습 플랫폼의 품질은 데이터 소스에 달려 있습니다. 외부 데이터를 구매하는 대신 직접 채용공고 스크래핑 파이프라인을 설계해 최신 공고를 면접 콘텐츠의 핵심 데이터 소스로 활용했습니다. 또한 면접 영상에서 얼굴 감지와 표정 분석 파이프라인을 구현해 비언어적 요소까지 분석하는 AI 면접관 기능을 완성했습니다.</p>
+          <div class="block-label">내가 한 것</div>
+          <ul class="did-list">
+            <li>채용공고 스크래핑 파이프라인 설계 및 개발</li>
+            <li>면접 영상 기반 얼굴 감지 · 표정 분석 파이프라인 개발, AWS Lambda 연동</li>
+            <li>Django REST Framework 기반 백엔드 API 설계 및 구현</li>
+          </ul>
+          <div class="tags"><span class="tag tag-neutral">Python</span><span class="tag tag-neutral">Django</span><span class="tag tag-neutral">DRF</span><span class="tag tag-neutral">Computer Vision</span></div>
+          <a class="repo-link" href="https://github.com/kmu-aws-capstone-team-4" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+      </article>
+
+      <article class="project reveal">
+        <div class="project-meta">
+          <div class="project-num">02</div>
+          <div class="project-type">팀 프로젝트 · Harness Eng.</div>
+          <div class="project-period">2026.05 – 2026.06</div>
+        </div>
+        <div class="project-body">
+          <h3>Reading</h3>
+          <div class="project-sub">Harness Engineering으로 개발한 AI 도서 추천 · 정보 통합 서비스</div>
+          <div class="block-label">풀어낸 문제</div>
+          <p class="problem">"어떤 책을 읽을까?"라는 고민에 GPT-4o가 취향(장르·분위기·난이도)을 분석해 맞춤 도서 5권을 추천합니다. 온라인 서점 4곳의 최저가 비교와 서울시 공공도서관 위치 조회까지 한 플랫폼에서 제공합니다. 핵심은 구현 방식으로, AI 에이전트 3인 팀(Architect · Developer · QA)이 4단계 자동화 파이프라인으로 Django 앱 4개를 직접 설계·개발·테스트했습니다.</p>
+          <div class="block-label">내가 한 것</div>
+          <ul class="did-list">
+            <li>Harness Engineering 파이프라인 설계 — 오케스트레이터 · 에이전트 3종 · 스킬 3종 구축</li>
+            <li>GPT-4o 연동 도서 추천 API 및 네이버 API 기반 서점 가격 비교 기능 구현</li>
+            <li>전체 아키텍처 설계 · 문서화 (CLAUDE.md, harness.md, API 명세서)</li>
+            <li>GitHub Actions CI / pre-commit 품질 게이트 구성 (테스트 29개 전체 PASS)</li>
+          </ul>
+          <div class="tags"><span class="tag tag-neutral">Python</span><span class="tag tag-neutral">Django 5.2</span><span class="tag tag-neutral">DRF</span><span class="tag tag-neutral">GPT-4o</span><span class="tag tag-neutral">Harness Eng.</span><span class="tag tag-neutral">GitHub Actions</span></div>
+          <a class="repo-link" href="https://github.com/kmu-software-engineering-project/backend" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+      </article>
+
+      <article class="project reveal">
+        <div class="project-meta">
+          <div class="project-num">03</div>
+          <div class="project-type">해커톤 · 4호선톤</div>
+          <div class="project-period">2025.10 – 2025.11</div>
+        </div>
+        <div class="project-body">
+          <h3>AI 챌린지 인증 플랫폼</h3>
+          <div class="project-sub">서울 지하철 4호선 대학 연합 해커톤</div>
+          <div class="block-label">풀어낸 문제</div>
+          <p class="problem">챌린지 인증 사진의 진위를 사람이 직접 검토하는 방식은 확장되지 않습니다. AI로 인증 사진을 자동 분석·판별하는 시스템을 구현했고, 처음으로 타 대학 팀원들과 협업하면서 API 명세 문서화를 직접 주도해 커뮤니케이션 비용과 통합 오류를 줄였습니다. EC2 인프라 구축부터 DNS 도메인 배포까지 인프라 전 과정도 담당했습니다.</p>
+          <div class="block-label">내가 한 것</div>
+          <ul class="did-list">
+            <li>Django REST Framework 기반 RESTful API 설계 및 구현</li>
+            <li>API 명세 문서 작성 주도 (타 대학 팀원과 협업)</li>
+            <li>AWS EC2 인프라 구축 및 DNS 연결을 통한 도메인 배포</li>
+          </ul>
+          <div class="tags"><span class="tag tag-neutral">Python</span><span class="tag tag-neutral">Django</span><span class="tag tag-neutral">DRF</span><span class="tag tag-neutral">AWS EC2</span><span class="tag tag-neutral">DNS</span></div>
+          <a class="repo-link" href="https://github.com/Likelion13-line4-Challink/Challink-BE" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+      </article>
+
+      <article class="project reveal">
+        <div class="project-meta">
+          <div class="project-num">04</div>
+          <div class="project-type">해커톤 · 멋사 13기 중앙</div>
+          <div class="project-period">2025.08</div>
+          <div class="project-badge"><span class="tag tag-outline">전국 247팀 중 83위</span></div>
+        </div>
+        <div class="project-body">
+          <h3>부동산 서류 AI 분석 서비스</h3>
+          <div class="project-sub">멋쟁이사자처럼 13기 중앙 해커톤</div>
+          <div class="block-label">풀어낸 문제</div>
+          <p class="problem">전세·월세 계약서나 등기부등본은 법률 용어로 가득 차 일반인이 이해하기 어렵습니다. AI API를 연동해 복잡한 서류를 쉬운 언어로 분석해주는 기능을 구현했고, 프롬프트 엔지니어링으로 분석 결과의 정확도와 일관성을 반복적으로 개선했습니다.</p>
+          <div class="block-label">내가 한 것</div>
+          <ul class="did-list">
+            <li>AI API 연동 및 프롬프트 엔지니어링으로 응답 정확도 향상</li>
+            <li>Django 기반 백엔드 API 설계 및 개발</li>
+            <li>AWS EC2 배포 및 운영 환경 구축</li>
+          </ul>
+          <div class="tags"><span class="tag tag-neutral">Python</span><span class="tag tag-neutral">Django</span><span class="tag tag-neutral">AWS EC2</span><span class="tag tag-neutral">AWS S3</span><span class="tag tag-neutral">AI API</span></div>
+          <a class="repo-link" href="https://github.com/kookmin-404BrainNotFound/404BrainNotFound_BE" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+      </article>
+
+      <article class="project reveal">
+        <div class="project-meta">
+          <div class="project-num">05</div>
+          <div class="project-type">아이디어톤 · 멋사 13기</div>
+          <div class="project-period">2025.05</div>
+          <div class="project-badge"><span class="tag tag-outline">교내 1위 · 학교 대표 선발</span></div>
+        </div>
+        <div class="project-body">
+          <h3>주류 애호가를 위한 큐레이션 서비스</h3>
+          <div class="project-sub">멋쟁이사자처럼 13기 아이디어톤</div>
+          <div class="block-label">풀어낸 문제</div>
+          <p class="problem">양주·칵테일·와인에 관심이 생겨도 어디서 무엇을 골라야 할지 몰라 진입장벽이 높다는 문제에 주목했습니다. 사용자 페르소나와 레퍼런스 리서치를 바탕으로 맞춤형 추천 플로우를 설계하고, Figma로 UI/UX 프로토타입을 완성해 교내 1위 · 학교 대표 선발을 달성했습니다.</p>
+          <div class="block-label">내가 한 것</div>
+          <ul class="did-list">
+            <li>사용자 페르소나 정의 및 레퍼런스 리서치 주도</li>
+            <li>핵심 기능 설계 및 Figma UI/UX 프로토타이핑 담당</li>
+          </ul>
+          <div class="tags"><span class="tag tag-neutral">Figma</span><span class="tag tag-neutral">Notion</span></div>
+        </div>
+      </article>
+
+      <article class="project reveal">
+        <div class="project-meta">
+          <div class="project-num">06</div>
+          <div class="project-type">개인 프로젝트</div>
+          <div class="project-period">학습 프로젝트</div>
+        </div>
+        <div class="project-body">
+          <h3>Pinterest 스타일 사진 공유 웹</h3>
+          <div class="project-sub">Django 풀스택 개인 학습 프로젝트</div>
+          <div class="block-label">풀어낸 문제</div>
+          <p class="problem">Django의 MTV 구조, 파일 업로드, 템플릿 시스템을 실제로 사용하며 익히고 싶었습니다. Pinterest의 그리드 레이아웃을 직접 구현하면서 CSS Grid와 Django 파일 핸들링을 동시에 익혔고, "보고 배우는 것"이 아닌 "만들며 배우는 것"의 효과를 체감했습니다.</p>
+          <div class="block-label">내가 한 것</div>
+          <ul class="did-list">
+            <li>Django 기반 사진 업로드 및 공유 기능 전 과정 구현</li>
+            <li>HTML/CSS 그리드 레이아웃 UI 직접 구성</li>
+          </ul>
+          <div class="tags"><span class="tag tag-neutral">Python</span><span class="tag tag-neutral">Django</span><span class="tag tag-neutral">HTML</span><span class="tag tag-neutral">CSS</span></div>
+          <a class="repo-link" href="https://github.com/sonnyseokjun/SA_Whatever_seokjun" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============================== AWARDS ============================== -->
+<section id="awards" class="section">
+  <div class="wrap">
+    <header class="section-head reveal">
+      <div class="kicker">03 — Awards &amp; Activities</div>
+      <h2>수상 및 활동</h2>
+    </header>
+    <div class="awards reveal">
+      <div class="award">
+        <div class="award-date">2026.06</div>
+        <div><div class="award-title">국민대학교 캡스톤디자인 졸업프로젝트 금상</div><div class="award-sub">해당 분반 1등 · Mefit (AI 가상 면접 플랫폼)</div></div>
+      </div>
+      <div class="award">
+        <div class="award-date">2026.01</div>
+        <div><div class="award-title">AWS Certified Cloud Practitioner 취득</div><div class="award-sub">AWS 핵심 서비스 및 클라우드 아키텍처 공인 자격</div></div>
+      </div>
+      <div class="award">
+        <div class="award-date">2025.08</div>
+        <div><div class="award-title">AWS AI Agent with MCP 부트캠프 수료</div><div class="award-sub">AWS Korea 주관 · 학과 교수 추천 선발</div></div>
+      </div>
+      <div class="award">
+        <div class="award-date">2025.05</div>
+        <div><div class="award-title">멋쟁이사자처럼 아이디어톤 교내 1위</div><div class="award-sub">학교 대표 선발 · 주류 큐레이션 서비스 기획</div></div>
+      </div>
+      <div class="award">
+        <div class="award-date">2025.01 – 2025.12</div>
+        <div><div class="award-title">멋쟁이사자처럼 13기 수료</div><div class="award-sub">Django 백엔드 트랙 · 해커톤 2회 참가 (중앙 해커톤, 4호선톤)</div></div>
+      </div>
+    </div>
+    <div class="photos reveal">
+      <img src="web_site_photos/KakaoTalk_20260711_205722141.jpg" alt="활동 사진" loading="lazy">
+      <img src="web_site_photos/KakaoTalk_20260711_205751327.jpg" alt="활동 사진" loading="lazy">
+      <img src="web_site_photos/KakaoTalk_20260711_210636590.jpg" alt="활동 사진" loading="lazy">
+      <img src="web_site_photos/KakaoTalk_20260711_210653008.jpg" alt="활동 사진" loading="lazy">
+      <img src="web_site_photos/KakaoTalk_20260711_210758972.jpg" alt="활동 사진" loading="lazy">
+      <img src="web_site_photos/KakaoTalk_20260711_210758972_01.jpg" alt="활동 사진" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ============================== CONTACT ============================== -->
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="kicker kicker-paper reveal">04 — Contact</div>
+    <h2 class="reveal">함께 일해요</h2>
+    <p class="reveal">다양한 사람들과 소통하고 새로운 걸 배우는 것을 즐깁니다. 언제든 편하게 연락해주세요.</p>
+    <div class="contact-links reveal">
+      <a href="mailto:kimsj6978@gmail.com"><span>Email</span><span class="contact-val">kimsj6978@gmail.com ↗</span></a>
+      <a href="https://github.com/sonnyseokjun" target="_blank" rel="noopener"><span>GitHub</span><span class="contact-val">github.com/sonnyseokjun ↗</span></a>
+      <a href="https://linkedin.com/in/seokjun1021" target="_blank" rel="noopener"><span>LinkedIn</span><span class="contact-val">linkedin.com/in/seokjun1021 ↗</span></a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">© 2026 김석준 · Built with HTML · CSS · Vanilla JS</div>
+</footer>
+
+<script src="./script.js"></script>
 </body>
 </html>
