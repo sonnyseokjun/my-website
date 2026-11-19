@@ -143,6 +143,24 @@ a:hover { color: var(--color-accent-700); }
 .nav-links a:hover,
 .nav-links a.active { color: var(--color-accent); }
 
+/* ---- 언어 토글 (KO / EN) ----
+   테마 토글과 같은 외곽선 버튼. 현재 언어만 강조색으로 표시합니다. */
+.lang-toggle {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  height: 34px; padding: 0 12px; cursor: pointer;
+  background: transparent; color: var(--color-neutral-600);
+  border: 1px solid var(--color-divider);
+  font-family: var(--font-heading); font-weight: 600;
+  font-size: 12.5px; letter-spacing: 0.06em; line-height: 1;
+  transition: background-color .2s, color .2s;
+}
+.lang-toggle:hover { background: var(--color-surface); color: var(--color-text); }
+.lang-toggle [data-lang-opt] { transition: color .2s; }
+:root:not([data-lang="en"]) .lang-toggle [data-lang-opt="ko"],
+:root[data-lang="en"] .lang-toggle [data-lang-opt="en"] { color: var(--color-accent); }
+/* nav-inner의 24px 간격 대신 두 버튼을 8px로 붙여 한 묶음처럼 보이게 합니다. */
+.lang-toggle + .theme-toggle { margin-left: -16px; }
+
 /* ---- 테마 토글 ---- */
 .theme-toggle {
   display: inline-flex; align-items: center; justify-content: center;
