@@ -69,9 +69,9 @@
     'p3.type': 'Team Project · Harness Eng.',
     'p3.period': 'May 2026 – Jun 2026',
     'p3.sub': 'AI book recommendation &amp; information hub, built with Harness Engineering',
-    'p3.problem': 'For the question "What should I read next?", GPT-4o analyzes your taste (genre, mood, difficulty) and recommends five personalized books. The platform also compares lowest prices across four online bookstores and looks up Seoul public library locations — all in one place. The key was how it was built: a team of three AI agents (Architect · Developer · QA) designed, developed, and tested four Django apps through a four-stage automated pipeline.',
+    'p3.problem': 'For the question "What should I read next?", GPT-4o analyzes your taste (genre, mood, difficulty) and recommends five personalized books. The platform also compares lowest prices across four online bookstores and looks up Seoul public library locations all in one place. The key was how it was built: a team of three AI agents (Architect · Developer · QA) designed, developed, and tested four Django apps through a four-stage automated pipeline.',
     'p3.did':
-      '<li>Designed the Harness Engineering pipeline — built the orchestrator, 3 agents, and 3 skills</li>' +
+      '<li>Designed the Harness Engineering pipeline; built the orchestrator, 3 agents, and 3 skills</li>' +
       '<li>Implemented the GPT-4o book recommendation API and bookstore price comparison via the Naver API</li>' +
       '<li>Designed and documented the overall architecture (CLAUDE.md, harness.md, API specification)</li>' +
       '<li>Set up GitHub Actions CI and pre-commit quality gates (all 29 tests passing)</li>',
@@ -90,7 +90,7 @@
     'p5.type': 'Hackathon · LIKELION 13th National',
     'p5.period': 'Aug 2025',
     'p5.badge': '83rd of 247 teams nationwide',
-    'p5.name': 'Deundeunjip',
+    'p5.name': 'AI Real-Estate Document Analyzer',
     'p5.sub': 'AI real-estate document analysis service · LIKELION 13th National Hackathon',
     'p5.problem': 'Lease contracts and property registration documents are packed with legal jargon that is hard for ordinary people to understand. I integrated an AI API to analyze these complex documents in plain language, and iteratively improved the accuracy and consistency of the analysis through prompt engineering.',
     'p5.did':
@@ -104,7 +104,7 @@
     'p6.badge': '1st on Campus · School Representative',
     'p6.name': 'Curation Service for Liquor Enthusiasts',
     'p6.sub': 'LIKELION 13th Ideathon',
-    'p6.problem': 'Even when people get interested in spirits, cocktails, or wine, they often don\'t know where to start or what to choose — a high barrier to entry. Based on user personas and reference research, I designed a personalized recommendation flow and completed a UI/UX prototype in Figma, winning 1st place on campus and being selected as the school representative.',
+    'p6.problem': 'Even when people get interested in spirits, cocktails, or wine, they often don\'t know where to start or what to choose and this is a high barrier to entry. Based on user personas and reference research, I designed a personalized recommendation flow and completed a UI/UX prototype in Figma, winning 1st place on campus and being selected as the school representative.',
     'p6.did':
       '<li>Led user persona definition and reference research</li>' +
       '<li>Designed core features and built the Figma UI/UX prototype</li>',
